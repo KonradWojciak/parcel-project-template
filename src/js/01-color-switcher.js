@@ -20,6 +20,8 @@ async function startColorSwitch() {
 
 async function stopColorSwitch(intervalId) {
   clearInterval(intervalId);
+  butSwitchStop.disabled = true;
+  butSwitchStart.disabled = false;
 }
 
 butSwitchStart.addEventListener('click', async () => {
