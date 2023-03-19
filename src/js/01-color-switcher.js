@@ -4,38 +4,30 @@ const bodyColor = document.querySelector('body');
 
 let intervalId;
 
-async function getRandomHexColor() {
+function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-async function colorChange() {
+function colorChange() {
   bodyColor.style.backgroundColor = getRandomHexColor();
 }
 
-async function startColorSwitch() {
+function startColorSwitch() {
   intervalId = setInterval(colorChange, 1000);
   butSwitchStop.disabled = false;
   butSwitchStart.disabled = true;
 }
 
-async function stopColorSwitch(intervalId) {
+function stopColorSwitch(intervalId) {
   clearInterval(intervalId);
   butSwitchStop.disabled = true;
   butSwitchStart.disabled = false;
 }
 
 butSwitchStart.addEventListener('click', async () => {
-  try {
-    startColorSwitch();
-  } catch (error) {
-    console.log(error.messege);
-  }
+  startColorSwitch();
 });
 
 butSwitchStop.addEventListener('click', async () => {
-  try {
-    stopColorSwitch();
-  } catch (error) {
-    console.log(error.messege);
-  }
+  stopColorSwitch();
 });
